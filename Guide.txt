@@ -1,0 +1,54 @@
+VPN Credentials 
+
+ziegertro@gmail.com
+pCZQo@8vXvN358
+
+
+1 - how to install surfshark inside container ?        					# ok 
+2 - how to automate running and rotate surshark ip ?
+3 - how to run the two python scripts inside docker container ?
+4 - is there stability issue will happen if we use surfshark with scraping script ?
+
+-- >> Install ubinto Linux for try surshark in Linux env 
+
+
+openvpn credintials 
+
+user : KwWYP9wAp2cFGeCQVb7TAKUx
+pass : MhvswcwyUrd6bzTpkFzhnLfy
+
+
+wireguard credintials :
+
+Public key : Nz/uQJVpK572okDlmv5wPnrGyK4AEkafVK/xg2mkeXA=
+Private key : eLAAlsn2qY5e+yibFhYP+F4FEbZEmXgzzNiI0Cfn4Wc=
+
+berlin configuration 
+Server IP: 217.138.216.59
+Server public key : d3ldwEjnFcbLwD1o8uC5xC3DaSNek8DGeTpOb/h/IE4=
+
+Frankfurt configuration 
+Server IP : 156.146.33.73
+Server public key : fJDA+OA6jzQxfRcoHfC27xz7m3C8/590fRjpntzSpGo=
+
+
+
+best OpenVPN configurations files located in Germany is :
+
+- de-fra.prod.surfshark.com_tcp.ovpn (Frankfurt)
+- de-ber.prod.surfshark.com_tcp.ovpn (Berlin)
+
+
+
+openvpn de-ber.prod.surfshark.com_tcp.ovpn
+
+for running docker image for vpn rotations you should use :
+docker run --dns=8.8.8.8 --cap-add=NET_ADMIN --device=/dev/net/tun --name=auto_vpn -it auto_vpn:v1
+
+openvpn --config /app/de-fra.prod.surfshark.comsurfshark_openvpn_tcp.ovpn
+
+156.174.42.206#
+156.174.42.206#
+
+89.36.76.124#
+

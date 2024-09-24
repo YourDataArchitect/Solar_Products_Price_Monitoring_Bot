@@ -1,0 +1,11 @@
+{
+  "id": "openvpn-portable",
+  "guid": "{945B36FA-05F1-4968-982E-49D57656EA61}",
+  "name": "OpenVPN Portable",
+  "version": "2.4.9-I601",
+  "release": "8",
+  "date": "2020/04/25 19:29:56",
+  "publisher": "CrazyMax",
+  "url": "https://github.com/portapps/openvpn-portable",
+  "portapps_version": "2.2.2"
+}

@@ -1,0 +1,74 @@
+Wed, 04 Sep 2024 15:51:41 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:104 > --------
+Wed, 04 Sep 2024 15:51:41 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:105 > Operating System: Windows 10.0.22631
+Wed, 04 Sep 2024 15:51:41 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:106 > Starting OpenVPN 2.4.9-I601-8 (portapps 2.2.2)...
+Wed, 04 Sep 2024 15:51:41 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:107 > Release date: 2020/04/25 19:29:56
+Wed, 04 Sep 2024 15:51:41 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:108 > Publisher: CrazyMax (https://github.com/portapps/openvpn-portable)
+Wed, 04 Sep 2024 15:51:41 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:109 > Root path: C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable
+Wed, 04 Sep 2024 15:51:41 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:113 > Configuration:
+common:
+  disable_log: false
+  args: []
+  env: {}
+  app_path: ""
+app:
+  cleanup: false
+
+Wed, 04 Sep 2024 15:51:41 EET ERR C:/Users/travis/build/portapps/openvpn-portable/main.go:98 > Cannot import registry key error="reg file C:\\Users\\Ramz\\Desktop\\scrapy_projects\\robin\\market_monitor_with_vpn\\openvpn-portable\\reg\\OpenVPN-GUI.reg not found"
+Wed, 04 Sep 2024 15:51:41 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:136 > Process: C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\app\win10\bin\openvpn-gui.exe
+Wed, 04 Sep 2024 15:51:41 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:137 > Args (config file): 
+Wed, 04 Sep 2024 15:51:41 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:138 > Args (cmd line): 
+Wed, 04 Sep 2024 15:51:41 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:139 > Args (hardcoded): --exe_path C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\app\win10\bin\openvpn.exe --config_dir C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\data\config --ext_string ovpn --log_dir C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\data\log --priority_string NORMAL_PRIORITY_CLASS --append_string 0
+Wed, 04 Sep 2024 15:51:41 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:140 > Working dir: C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\app\win10
+Wed, 04 Sep 2024 15:51:41 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:141 > App path: C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\app
+Wed, 04 Sep 2024 15:51:41 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:142 > Data path: C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\data
+Wed, 04 Sep 2024 15:51:41 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:148 > Launching OpenVPN...
+Wed, 04 Sep 2024 15:51:41 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:158 > Exec C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\app\win10\bin\openvpn-gui.exe --exe_path C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\app\win10\bin\openvpn.exe --config_dir C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\data\config --ext_string ovpn --log_dir C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\data\log --priority_string NORMAL_PRIORITY_CLASS --append_string 0
+Wed, 04 Sep 2024 15:51:54 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:104 > --------
+Wed, 04 Sep 2024 15:51:54 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:105 > Operating System: Windows 10.0.22631
+Wed, 04 Sep 2024 15:51:54 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:106 > Starting OpenVPN 2.4.9-I601-8 (portapps 2.2.2)...
+Wed, 04 Sep 2024 15:51:54 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:107 > Release date: 2020/04/25 19:29:56
+Wed, 04 Sep 2024 15:51:54 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:108 > Publisher: CrazyMax (https://github.com/portapps/openvpn-portable)
+Wed, 04 Sep 2024 15:51:54 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:109 > Root path: C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable
+Wed, 04 Sep 2024 15:51:54 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:113 > Configuration:
+common:
+  disable_log: false
+  args: []
+  env: {}
+  app_path: ""
+app:
+  cleanup: false
+
+Wed, 04 Sep 2024 15:51:54 EET ERR C:/Users/travis/build/portapps/openvpn-portable/main.go:98 > Cannot import registry key error="reg file C:\\Users\\Ramz\\Desktop\\scrapy_projects\\robin\\market_monitor_with_vpn\\openvpn-portable\\reg\\OpenVPN-GUI.reg not found"
+Wed, 04 Sep 2024 15:51:54 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:136 > Process: C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\app\win10\bin\openvpn-gui.exe
+Wed, 04 Sep 2024 15:51:54 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:137 > Args (config file): 
+Wed, 04 Sep 2024 15:51:54 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:138 > Args (cmd line): 
+Wed, 04 Sep 2024 15:51:54 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:139 > Args (hardcoded): --exe_path C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\app\win10\bin\openvpn.exe --config_dir C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\data\config --ext_string ovpn --log_dir C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\data\log --priority_string NORMAL_PRIORITY_CLASS --append_string 0
+Wed, 04 Sep 2024 15:51:54 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:140 > Working dir: C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\app\win10
+Wed, 04 Sep 2024 15:51:54 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:141 > App path: C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\app
+Wed, 04 Sep 2024 15:51:54 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:142 > Data path: C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\data
+Wed, 04 Sep 2024 15:51:54 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:148 > Launching OpenVPN...
+Wed, 04 Sep 2024 15:51:54 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:158 > Exec C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\app\win10\bin\openvpn-gui.exe --exe_path C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\app\win10\bin\openvpn.exe --config_dir C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\data\config --ext_string ovpn --log_dir C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\data\log --priority_string NORMAL_PRIORITY_CLASS --append_string 0
+Wed, 04 Sep 2024 15:52:09 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:104 > --------
+Wed, 04 Sep 2024 15:52:09 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:105 > Operating System: Windows 10.0.22631
+Wed, 04 Sep 2024 15:52:09 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:106 > Starting OpenVPN 2.4.9-I601-8 (portapps 2.2.2)...
+Wed, 04 Sep 2024 15:52:09 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:107 > Release date: 2020/04/25 19:29:56
+Wed, 04 Sep 2024 15:52:09 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:108 > Publisher: CrazyMax (https://github.com/portapps/openvpn-portable)
+Wed, 04 Sep 2024 15:52:09 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:109 > Root path: C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable
+Wed, 04 Sep 2024 15:52:09 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:113 > Configuration:
+common:
+  disable_log: false
+  args: []
+  env: {}
+  app_path: ""
+app:
+  cleanup: false
+
+Wed, 04 Sep 2024 15:52:09 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:136 > Process: C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\app\win10\bin\openvpn-gui.exe
+Wed, 04 Sep 2024 15:52:09 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:137 > Args (config file): 
+Wed, 04 Sep 2024 15:52:09 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:138 > Args (cmd line): 
+Wed, 04 Sep 2024 15:52:09 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:139 > Args (hardcoded): --exe_path C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\app\win10\bin\openvpn.exe --config_dir C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\data\config --ext_string ovpn --log_dir C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\data\log --priority_string NORMAL_PRIORITY_CLASS --append_string 0
+Wed, 04 Sep 2024 15:52:09 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:140 > Working dir: C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\app\win10
+Wed, 04 Sep 2024 15:52:09 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:141 > App path: C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\app
+Wed, 04 Sep 2024 15:52:09 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:142 > Data path: C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\data
+Wed, 04 Sep 2024 15:52:09 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:148 > Launching OpenVPN...
+Wed, 04 Sep 2024 15:52:09 EET INF C:/portapps_opt/gopath/pkg/mod/github.com/portapps/portapps/v2@v2.2.2/portapps.go:158 > Exec C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\app\win10\bin\openvpn-gui.exe --exe_path C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\app\win10\bin\openvpn.exe --config_dir C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\data\config --ext_string ovpn --log_dir C:\Users\Ramz\Desktop\scrapy_projects\robin\market_monitor_with_vpn\openvpn-portable\data\log --priority_string NORMAL_PRIORITY_CLASS --append_string 0
