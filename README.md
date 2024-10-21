@@ -1,5 +1,5 @@
 # Solar Products Price Monitoring Bot With VPN 🔆
-<div style="text-align: center;">
+<div align="center">
     <img src="https://blog.feniceenergy.com/wp-content/uploads/2024/05/how-is-solar-energy-useful-to-us.jpg" alt="A sample image" width="400" height="300">
 </div>
 
