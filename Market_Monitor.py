@@ -271,21 +271,32 @@ class sorting_new_products_sheet:
 
 
 class Database_Mangment:
+    def __init__(self):
+        # Define database config
+        current_dirct = os.getcwd()
+        file_path = os.path.join(current_dirct,'KEYS.xlsx')
+        df = pd.read_excel(file_path , index_col='key')
+        
+        try : 
+            self.connection = mysql.connector.connect(
+                host= df.at['host','value'],
+                user= df.at['user','value'],
+                password= df.at['password','value'],
+                database=df.at['database','value'])
+            
+            print('-- >> Database Connection established Successfully !!! ')
+            
+            # Create a cursor object to interact with the database
+            self.cursor = self.connection.cursor()
+            
+        except Error as e : 
+            warning_list.append(f'Opening Connection Database error: {e} - line 271')
+            print(f'Opening Connection Database error: {e}')
         
     @retry_decorator
-    def Add_unvalid_url_to_Database_New_products(url  ,source):
-        
+    def Add_unvalid_url_to_Database_New_products(self,url,source):
         print('-- >> Adding Unvalid LINKS to database')
         # Establish a connection to the MySQL server
-        connection = mysql.connector.connect(
-                    host="87.106.82.62",
-                    user="Scraper581",
-                    password="9?6ndF41j",
-                    database="sheetsgoogle")
-        # Create a cursor object to interact with the database
-        cursor = connection.cursor()
-        # Get keys string
-
         # Iterate through the list of dictionaries and insert each record
         new_dict_for_upload = {}
         new_dict_for_upload['SOURCE'] = source
@@ -298,25 +309,22 @@ class Database_Mangment:
         insert_query = f'''INSERT INTO sheetsgoogle.New_Products ({keys_string}) VALUES ({values_placeholder})'''
         
         print(f'Insert Record to "New_products" table: {values_tuple}')
-        cursor.execute(insert_query, values_tuple)
+        
+        self.cursor.execute(insert_query, values_tuple)
 
         # # # # # Commit the changes to the database
-        connection.commit()
-        # # # # Close the cursor and connection
-        cursor.close()
-        connection.close()
-    
-    
+        self.connection.commit()
+
     @retry_decorator
-    def Extract_last_5_prices_from_database(cursor,URL) -> list[dict]:
+    def Extract_last_5_prices_from_database(self,URL) -> list[dict]:
         '''This Functuion for get records from the database using the given URL'''
         # get data from database and the output is list of rows
-        cursor.execute(f'''
+        self.cursor.execute(f'''
                         SELECT * FROM `Follow_Up_Competitors_Prices`
                         WHERE URL = '{URL}';''')
-        result_all_data = cursor.fetchall()
-        cursor.execute(f"SHOW COLUMNS FROM `Follow_Up_Competitors_Prices`;")
-        columns = cursor.fetchall()
+        result_all_data = self.cursor.fetchall()
+        self.cursor.execute(f"SHOW COLUMNS FROM `Follow_Up_Competitors_Prices`;")
+        columns = self.cursor.fetchall()
         columns
         columns_names = tuple([record[0] for record in columns])
         columns_names
@@ -336,40 +344,20 @@ class Database_Mangment:
             return '-'
         
     @retry_decorator
-    def read_records_NEW_PRODUCTS_database_New_products_spider() -> list[dict]:
+    def read_records_NEW_PRODUCTS_database_New_products_spider(self) -> list[dict]:
         '''This Functuion for get records from the database '''
-        # get data from database and the output is list of rows
-        host = '87.106.82.62'
-        user = 'Scraper581'
-        password = '9?6ndF41j'
-        database = 'sheetsgoogle'
         tableName = 'New_Products'
-        # Establish the connection
-        connection = mysql.connector.connect(host=host,
-                                        user=user,
-                                        password=password,
-                                        database=database)
-        cursor = connection.cursor()
-        cursor.execute(f"SELECT URL FROM {tableName}")
-        result_all_data = cursor.fetchall()
+        self.cursor.execute(f"SELECT URL FROM {tableName}")
+        result_all_data = self.cursor.fetchall()
         set_records = {url[0] for url in result_all_data}
         return set_records
-    
+
     @retry_decorator
-    def Add_Records_to_Database_New_products_spider(LIST_OF_dicts):
+    def Add_Records_to_Database_New_products_spider(self,LIST_OF_dicts):
         # INPUT LIST CONTAINS URL'S 
         # Example : input = ['URL_1', 'URL_2', 'URL_3', 'URL_4']
         
         print('-- >> Adding NEW PRODUCTS LINKS to database')
-        # Establish a connection to the MySQL server
-        connection = mysql.connector.connect(
-                    host="87.106.82.62",
-                    user="Scraper581",
-                    password="9?6ndF41j",
-                    database="sheetsgoogle")
-        # Create a cursor object to interact with the database
-        cursor = connection.cursor()
-        # Get keys string
 
         # Iterate through the list of dictionaries and insert each record
         for record in LIST_OF_dicts:
@@ -385,118 +373,51 @@ class Database_Mangment:
             insert_query = f'''INSERT INTO sheetsgoogle.New_Products ({keys_string}) VALUES ({values_placeholder})'''
             
             print(f'Insert Record to "New_products" table: {values_tuple}')
-            cursor.execute(insert_query, values_tuple)
+            self.cursor.execute(insert_query, values_tuple)
 
         # # # # # Commit the changes to the database
-        connection.commit()
-        # # # # Close the cursor and connection
-        cursor.close()
-        connection.close()
+        self.connection.commit()
+
         
     @retry_decorator
-    def check_connection():
+    def check_connection(self):
         try:
-        # Establish the connection
-            connection = mysql.connector.connect(
-            host = "87.106.82.62",
-            user = "Scraper581",
-            password = "9?6ndF41j",
-            database = "sheetsgoogle"
-            )
-            
-            if connection.is_connected():
+            if self.connection.is_connected():
                 print("Successfully connected to the database")
                 
                 # Print the MariaDB server version
-                db_info = connection.get_server_info()
+                db_info = self.connection.get_server_info()
                 print(f"MariaDB server version: {db_info}")
                 
                 # Create a cursor object
-                cursor = connection.cursor()
+                cursor = self.connection.cursor()
                 
                 # Execute a simple query
                 cursor.execute("SELECT DATABASE();")
                 record = cursor.fetchone()
                 print(f"You're connected to database: {record}")
             
-            # Close the cursor and connection
-            cursor.close()
-            connection.close()
-            print("MySQL connection is closed")
+
         
         except Error as e:
             warning_list.append(f'Error while connecting to MariaDB: {e} - line 207')
             print(f"Error while connecting to MariaDB: {e}")
 
     @retry_decorator
-    def Add_URL_to_Database(LIST_OF_URLS,table_name):
-        # INPUT LIST CONTAINS URL'S 
-        # Example : input = ['URL_1', 'URL_2', 'URL_3', 'URL_4']
-        print('-- >> Adding records to database')
-        # Establish a connection to the MySQL server
-        connection = mysql.connector.connect(
-            host="127.0.0.1",
-            user="root",
-            password="root",
-            database="pricing_follow_up")
-        # Create a cursor object to interact with the database
-        cursor = connection.cursor()
-        # Get keys string
-
-        keys_string = 'URL'
-
-        # # SQL query to insert data into a table
-        for record in LIST_OF_URLS :
-            insert_query = f'''INSERT INTO {table_name} ({keys_string}) VALUES ('{record}')'''
-            cursor.execute(insert_query)
-        # # # # # Commit the changes to the database
-        connection.commit()
-        # # # # Close the cursor and connection
-        cursor.close()
-        connection.close()
-    
-    @retry_decorator
-    def read_records_database(tableName) -> list[dict]:
+    def read_records_database(self,tableName) -> list[dict]:
         '''This Functuion for get records from the database '''
         # get data from database and the output is list of rows
-        host = '87.106.82.62'
-        user = 'Scraper581'
-        password = '9?6ndF41j'
-        database = 'sheetsgoogle'
-        tableName = tableName
-        # Establish the connection
-        connection = mysql.connector.connect(host=host,
-                                        user=user,
-                                        password=password,
-                                        database=database)
-        cursor = connection.cursor()
-        cursor.execute(f"SELECT * FROM {tableName}")
-        result_all_data = cursor.fetchall()
-        cursor.execute(f"SHOW COLUMNS FROM {tableName};")
-        columns = cursor.fetchall()
+        self.cursor.execute(f"SELECT * FROM {tableName}")
+        result_all_data = self.cursor.fetchall()
+        self.cursor.execute(f"SHOW COLUMNS FROM {tableName};")
+        columns = self.cursor.fetchall()
         columns_names = tuple([record[0] for record in columns])
         result_all_data.append(columns_names)
         list_dicts_records = pd.DataFrame(result_all_data , columns= result_all_data[-1]).to_dict(orient='records')
         return list_dicts_records
-    
+            
     @retry_decorator
-    def openning_connection():
-        try : 
-            connection = mysql.connector.connect(
-                        host="87.106.82.62",
-                        user="Scraper581",
-                        password="9?6ndF41j",
-                        database="sheetsgoogle")
-             # Create a cursor object to interact with the database
-            cursor = connection.cursor()
-            print('-- >> Database Connection established Successfully !!! ')
-            return connection,cursor
-        except Error as e : 
-            warning_list.append(f'Opening Connection Database error: {e} - line 271')
-            print(f'Opening Connection Database error: {e}')
-         
-    @retry_decorator
-    def Add_Records_to_Database_Follow_Up_Competitors_Prices(record,connection,cursor):
+    def Add_Records_to_Database_Follow_Up_Competitors_Prices(self,record,connection,cursor):
         try : 
             # Get keys string
             keys_list = [key for key in record]
@@ -528,40 +449,16 @@ class Database_Mangment:
             warning_list.append(f'MySQL Error: {err} - line 303')
             print(f"Exception: {e}")
             
+
     @retry_decorator
-    def CloseConnection(connection,cursor):
-        try : 
-            cursor.close()
-            connection.close()
-            print('-- >> Connection closed successfully')
-        except Error as err:
-            warning_list.append(f'MySQL Closing error: {err} - line 312')
-            print(f'-- >> Closing error: {err}')
-            
-    @retry_decorator
-    def extract_record_from_database_using_url(connection,cursor,tableName,URL) -> list[dict]:
+    def extract_record_from_database_using_url(self,tableName,URL) -> list[dict]:
         '''This Functuion for get records from the database using the given URL'''
-        # get data from database and the output is list of rows
-        # host = '87.106.82.62'
-        # user = 'Scraper581'
-        # password = '9?6ndF41j'
-        # database = 'sheetsgoogle'
-        # tableName = tableName
-        # # Establish the connection
-        # connection = mysql.connector.connect(host=host,
-        #                                 user=user,
-        #                                 password=password,
-        #                                 database=database)
-      
-        cursor.execute(f'''
+        self.cursor.execute(f'''
                         SELECT * FROM `{tableName}`
-                        WHERE URL = '{URL}';
-                    
-                    
-                    ''')
-        result_all_data = cursor.fetchall()
-        cursor.execute(f"SHOW COLUMNS FROM {tableName};")
-        columns = cursor.fetchall()
+                        WHERE URL = '{URL}';''')
+        result_all_data = self.cursor.fetchall()
+        self.cursor.execute(f"SHOW COLUMNS FROM {tableName};")
+        columns = self.cursor.fetchall()
         columns_names = tuple([record[0] for record in columns])
         result_all_data.append(columns_names)
         list_dicts_records = pd.DataFrame(result_all_data , columns= result_all_data[-1]).to_dict(orient='records')[0]
@@ -573,42 +470,43 @@ class Database_Mangment:
             raise ValueError('Error_Record_not_exist')
 
     @retry_decorator
-    def delete_record_from_database(connection,cursor,record_url):
-        '''
-        This Functuion for Delete all old records according to URL OF RECORD 
-        '''
-        
-        try : 
-           
-            cursor.execute(f'''
+    def delete_record_from_database(self,record_url):
+        '''This Functuion for Delete all old records according to URL OF RECORD '''
+        try :
+            self.cursor.execute(f'''
                         DELETE FROM sheetsgoogle.Follow_Up_Competitors_Prices
                         WHERE URL = '{record_url}';''')
-            connection.commit()
+            self.connection.commit()
             # print(f'Record Deleted succefully URL : {record_url}')
         except Error as e:
             warning_list.append(f'Error for delete records: {e} - Line 361')
             print(f'Error for delete records : {e}')
             
     @retry_decorator
-    def update_column_database(connection,cursor) -> str :
+    def update_column_database(self) -> str :
         '''
         This Functuion for add missing column headers  
         Return : string for current date 
         '''
-        
-        cursor.execute(f"SHOW COLUMNS FROM sheetsgoogle.Follow_Up_Competitors_Prices;")
-        columns = cursor.fetchall()
+        self.cursor.execute(f"SHOW COLUMNS FROM sheetsgoogle.Follow_Up_Competitors_Prices;")
+        columns = self.cursor.fetchall()
         columns_names_from_database = tuple([record[0] for record in columns])
-        
         new_column_date = Tools.current_date().replace('.','_')
-        
         # check if there all column in record are present in database and if not present create new column
-        
         if new_column_date in columns_names_from_database : 
             pass 
         else : 
-            cursor.execute(f'''ALTER TABLE `sheetsgoogle`.`Follow_Up_Competitors_Prices` ADD COLUMN `{new_column_date}` Text NULL AFTER `Price_5_day_ago`;''')
+            self.cursor.execute(f'''ALTER TABLE `sheetsgoogle`.`Follow_Up_Competitors_Prices` ADD COLUMN `{new_column_date}` Text NULL AFTER `Price_5_day_ago`;''')
 
+    def __del__(self):
+        # Close the cursor and connection
+        if self.cursor:
+            self.cursor.close()
+        if self.connection:
+            self.connection.close()
+        
+        print("MySQL connection is closed")
+    
 class BrowserHandler:
     def launch_driver(login_page):
         print(f'-- >> Login page {login_page}')
