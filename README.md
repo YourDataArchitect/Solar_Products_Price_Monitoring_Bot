@@ -1,6 +1,6 @@
 # Solar Products Price Monitoring Bot With VPN 🔆
 <img src="https://blog.feniceenergy.com/wp-content/uploads/2024/05/how-is-solar-energy-useful-to-us.jpg" alt="A sample image" width="400" height="300">
-## 🔸 Overview
+🔸 #Overview
 -  This project is a web scraping bot that tracks solar energy product prices across 18 e-commerce websites. It performs daily updates by extracting prices, monitoring new products, and storing data in Google Sheets and a MySQL database. The bot operates in a Docker container with Surfshark VPN for secure scraping, ensuring easy deployment and management across different systems.
 
 ## 🔸 Features
