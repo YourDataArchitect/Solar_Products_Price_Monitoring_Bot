@@ -4,7 +4,7 @@
 This project is a web scraping bot that tracks solar energy product prices across 18 e-commerce websites. It performs daily updates by extracting prices, monitoring new products, and storing data in Google Sheets and a MySQL database. The bot operates in a Docker container with Surfshark VPN for secure scraping, ensuring easy deployment and management across different systems.
 
 ## 🔸 Features
-- 🔹 **Price Extraction**: Scrapes prices from 18 websites selling solar products.
+-  **Price Extraction**: Scrapes prices from 18 websites selling solar products.
 - 🔹 **Google Sheets Integration**: Updates a Google Sheet with the latest prices for easy access.
 - 🔹 **Database Storage**: Stores product and pricing data for historical tracking.
 - 🔹 **New Product Monitoring**: Detects and logs newly listed products.
