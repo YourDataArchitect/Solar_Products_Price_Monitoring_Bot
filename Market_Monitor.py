@@ -60,19 +60,6 @@ def retry_decorator(func):
     return wrapper
         
 class IP_Rotations:
-    # Reference : https://support.surfshark.com/hc/en-us/articles/360011051133-How-to-set-up-manual-OpenVPN-connection-using-Linux-Terminal
-
-    # openvpn credintials (auth.txt) : Normal connection
-    # user : KwWYP9wAp2cFGeCQVb7TAKUx
-    # pass : MhvswcwyUrd6bzTpkFzhnLfy
-
-    # openvpn credintials (auth.txt) : dedicated ip
-    # user : EQzbhWRXNjpxR3EtDr6BwU6x
-    # pass : K2auXNvAUG6nKMX8jSFG7UsW
-
-    # for running docker image for vpn rotations you should use :
-    # docker run --dns=8.8.8.8 --cap-add=NET_ADMIN --device=/dev/net/tun --name=auto_vpn -it auto_vpn:v1
-    
     def setup_connection():
         # Update and install openvpn and unzip the configirations files 
         try : 
